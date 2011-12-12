@@ -5,10 +5,22 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<title>index</title>
-	<meta name="generator" content="TextMate http://macromates.com/">
 	<meta name="author" content="joydeep@studypadinc.com">
+	<script src="http://code.jquery.com/jquery-1.7.1.min.js" type="text/javascript" charset="utf-8"></script>
 	<script type="text/javascript" charset="utf-8">
-		
+		function createCanvases(num) {
+			for (var i=0; i < num; i++) {
+				$("#canvases")[0].add('<canvas id="id'+num+'" width="200px" height="200px"> </canvas>');
+				var context = $("#id"+num)[0].getContext("2d");
+				context.beginPath();
+				context.arc(100, 100, num, 0, Math.PI*2, true); 
+				context.closePath();
+				context.stroke();
+				//$("#id"+num).remove();
+				          	
+			};                                   
+			
+		}
 	</script>
 	<!-- Date: 2011-12-12 -->
 </head>
@@ -17,7 +29,10 @@
 		<h1>A thousand Canvases</h1>
 	</div>
 	<div class="test-desc">
-		<p>In this test, we will create 100 number of canvases and draw a random line on the canvas</p>
+		<p>In this test, we will create 1000 canvases and a circle on the canvas</p>
+	</div>
+	<div class="action">
+		<input type="button" name="create" value="create" id="create" onClick="createCanvases(1000)">
 	</div>
 	<div class="canvases" id="canvases"> 	
 	</div>
